@@ -2,19 +2,15 @@ import React from "react";
 import { render } from "@testing-library/react"
 import Card from "./Card";
 
+describe(Card, ()=>{
+    it("check the initial caption", () =>{
+       const {getByTestId} = render(<Card 
+            caption={"Photo by Richard Pasquarella on Unsplash"}
+            totalNum={5}
+        />)
 
-
-test("renders without crashing", () =>{
-    render(<Card />)
+        const caption1 = getByTestId("caption").textContent;
+        expect(caption1).toBe("Photo by Richard Pasquarella on Unsplash")
+    })
 })
 
-test("get the caption of image", () =>{
-    const expectedCaption = "Photo by Richard Pasquarella on Unsplash"
-    const {getByText} = render(<Card caption={expectedCaption}/>)
-    let caption = getByText(expectedCaption)
-    expect(caption).toBeInTheDocument()
-})
-
-// test("fire the left arrow", () =>{
-//     const {getByText} =  render(<Card />)
-// })

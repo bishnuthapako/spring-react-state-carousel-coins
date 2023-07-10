@@ -22,25 +22,29 @@ import Card from "./Card";
 
   //Increments currCardIdx state by 1
   function goForward() {
-    setCurrCardIdx(currCardIdx + 1);
+    if (currCardIdx < total) {
+      setCurrCardIdx(currCardIdx + 1)
+    }
   }
 
   // Decrement currCardId state by 1;
   function goBackward(){
-    setCurrCardIdx(currCardIdx - 1)
+    console.log(currCardIdx);
+    if (currCardIdx > 0) {
+      setCurrCardIdx(currCardIdx - 1)
+    }
   }
 
   return (
     <div className="Carousel">
       <h1>{title}</h1>
       <div className="Carousel-main">
-      {
-        currCardIdx > 0 &&
+    { currCardIdx > 0 &&
         <i
-        className="bi bi-arrow-left-circle"
-        onClick={goBackward}
-      />
-      }
+      className="bi bi-arrow-left-circle"
+      onClick={goBackward}
+    />
+    }
         <Card
           caption={currCard.caption}
           src={currCard.src}

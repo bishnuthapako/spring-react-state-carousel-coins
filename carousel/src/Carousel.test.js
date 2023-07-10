@@ -8,10 +8,12 @@ test("works when you click on the left arrow", ()=>{
   const { container } = render(
     <Carousel
       photos={TEST_IMAGES}
-      title="images for testing"
+      title="testing negative index"
     />
   );
-  
+  const leftArrow = container.querySelector(".bi-arrow-left-circle");
+    
+  expect(leftArrow).toBe(null);
 })
 
 it("works when you click on the right arrow", function() {
